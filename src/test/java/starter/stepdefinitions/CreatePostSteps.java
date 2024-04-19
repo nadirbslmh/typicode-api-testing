@@ -32,4 +32,13 @@ public class CreatePostSteps {
         createPost.receiveValidCreatedPostData();
     }
 
+    @When("I send request to create a new post with invalid inputs")
+    public void sendCreatePostRequestInvalidInputs() {
+        createPost.sendCreatePostInvalidInputs();
+    }
+
+    @Then("I receive status code 400")
+    public void receiveStatusCode400() {
+        createPost.receiveStatusCode400();
+    }
 }

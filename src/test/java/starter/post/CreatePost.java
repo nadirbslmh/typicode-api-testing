@@ -56,5 +56,28 @@ public class CreatePost {
         restAssuredThat(response -> response.body("'userId'", notNullValue()));
     }
 
+    @Step("I send request to create a new post with invalid inputs")
+    public void sendCreatePostInvalidInputs() {
+        JSONObject requestBody = new JSONObject();
+
+        Faker faker = new Faker();
+
+        String title = faker.book().title();
+        String body = faker.lorem().paragraph(3);
+
+        requestBody.put("title", title);
+        requestBody.put("body", body);
+        requestBody.put("userId", 1);
+
+        SerenityRest.given()
+                .header("Content-Type", "text/plain")
+                .body(requestBody.toString())
+                .post(setApiEndpoint());
+    }
+
+    @Step("I receive status code 400")
+    public void receiveStatusCode400() {
+        restAssuredThat(response -> response.statusCode(400));
+    }
 
 }
