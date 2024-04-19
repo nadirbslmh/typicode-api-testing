@@ -1,13 +1,11 @@
-# rest-assured-bdd-starter
+# typicode-api-testing
 
-Simple template for API testing with REST Assured and Serenity BDD.
+REST API testing for Typicode API
 
 ## How to Use
 
 1. Clone this repository.
-2. Build this project.
-3. Write the tests.
-4. Run the tests
+2. Run the tests
 
 ```shell
 mvn clean verify
